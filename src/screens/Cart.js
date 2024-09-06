@@ -20,19 +20,22 @@ export default function Cart() {
     let userEmail = localStorage.getItem("userEmail");
     const stripe = await stripePromise;
 
-    let respon = await fetch("http://localhost:5000/api/orderData", {
-      // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        order_data: data,
-        email: userEmail,
-        order_date: new Date().toDateString(),
-      }),
-    });
+    let respon = await fetch(
+      "https://hungryhutapp-mern-server.onrender.com/api/orderData",
+      {
+        // credentials: 'include',
+        // Origin:"http://localhost:3000/login",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          order_data: data,
+          email: userEmail,
+          order_date: new Date().toDateString(),
+        }),
+      }
+    );
      if (respon.status === 200) {
        dispatch({ type: "DROP" });
      }

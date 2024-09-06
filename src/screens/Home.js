@@ -15,12 +15,15 @@ export default function Home() {
   const [search, setSearch] = useState("");
 
   const loadFoodItems = async () => {
-    let response = await fetch("http://localhost:5000/api/foodData", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    let response = await fetch(
+      "https://hungryhutapp-mern-server.onrender.com/api/foodData",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
-    });
+    );
     response = await response.json();
     // console.log(response[0],response[1 ])
     setFoodItems(response[0]);
