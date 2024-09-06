@@ -8,10 +8,7 @@ const mongoDB = async () => {
       "mongodb+srv://hungryhut:vinu1234@cluster0.ccgqu.mongodb.net/hungryhutmern?retryWrites=true&w=majority&appName=Cluster0";
 
     // Connect to MongoDB
-    await mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(mongoURI);
     console.log("Connected successfully to MongoDB");
 
     // Fetch data from collections
