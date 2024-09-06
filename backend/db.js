@@ -1,16 +1,14 @@
 const express = require("express");
-require("dotenv").config(); // Ensure this is at the top of your file
 const mongoose = require("mongoose");
 
 const mongoDB = async () => {
   try {
-    // Verify that MONGO_URI is defined
-    if (!process.env.MONGO_URI) {
-      throw new Error("MONGO_URI is not defined in the .env file");
-    }
+    // Define MongoDB connection URL directly
+    const mongoURI =
+      "mongodb+srv://hungryhut:vinu1234@cluster0.ccgqu.mongodb.net/hungryhutmern?retryWrites=true&w=majority&appName=Cluster0";
 
     // Connect to MongoDB
-    await mongoose.connect(process.env.MONGO_URI, {
+    await mongoose.connect(mongoURI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
