@@ -8,7 +8,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      "https://hungryhutapp-mern-server.onrender.com/api/login",
+      "https://hungryhutapp-mern-server.onrender.com/login",
       {
         method: "POST",
         headers: {

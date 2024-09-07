@@ -42,7 +42,7 @@ export default function Signup() {
 
       // Make the request to get location information
       const response = await fetch(
-        "https://hungryhutapp-mern-server.onrender.com/api/getlocation",
+        "https://hungryhutapp-mern-server.onrender.com/getlocation",
         {
           method: "POST",
           headers: {
@@ -72,7 +72,7 @@ export default function Signup() {
     e.preventDefault();
     try {
       const response = await fetch(
-        "https://hungryhutapp-mern-server.onrender.com/api/createuser",
+        "https://hungryhutapp-mern-server.onrender.com/createuser",
         {
           method: "POST",
           headers: {

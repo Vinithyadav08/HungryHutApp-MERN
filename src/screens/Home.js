@@ -16,7 +16,7 @@ export default function Home() {
 
   const loadFoodItems = async () => {
     let response = await fetch(
-      "https://hungryhutapp-mern-server.onrender.com/api/foodData",
+      "https://hungryhutapp-mern-server.onrender.com/foodData",
       {
         method: "POST",
         headers: {

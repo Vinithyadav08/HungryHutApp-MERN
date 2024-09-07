@@ -21,7 +21,7 @@ export default function Cart() {
     const stripe = await stripePromise;
 
     let respon = await fetch(
-      "https://hungryhutapp-mern-server.onrender.com/api/orderData",
+      "https://hungryhutapp-mern-server.onrender.com/orderData",
       {
         // credentials: 'include',
         // Origin:"http://localhost:3000/login",
@@ -41,7 +41,7 @@ export default function Cart() {
      }
 
     const response = await fetch(
-      "http://localhost:5000/api/stripe/create-checkout-session",
+      "https://hungryhutapp-mern-server.onrender.com/stripe/create-checkout-session",
       {
         method: "POST",
         headers: {
