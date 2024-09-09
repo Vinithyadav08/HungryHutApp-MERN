@@ -32,8 +32,8 @@ router.post("/create-checkout-session", async (req, res) => {
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: "https://hungryhutapp-mern-client.onrender.com/success",
-      cancel_url: "https://hungryhutapp-mern-client.onrender.com/cancel",
+      success_url: "https://hungryhutapp-mern.onrender.com/success",
+      cancel_url: "https://hungryhutapp-mern.onrender.com/cancel",
     });
 
     res.json({ id: session.id });
