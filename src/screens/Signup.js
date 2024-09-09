@@ -41,13 +41,16 @@ export default function Signup() {
       console.log(latitude, longitude);
 
       // Make the request to get location information
-      const response = await fetch("http://localhost:5000/api/orderdata/getlocation", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ latlong: { lat: latitude, long: longitude } }),
-      });
+      const response = await fetch(
+        "https://hungryhutapp-mern-server.onrender.com/api/orderdata/getlocation",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ latlong: { lat: latitude, long: longitude } }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -68,18 +71,21 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/createuser/createuser", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: credentials.name,
-          email: credentials.email,
-          password: credentials.password,
-          location: credentials.geolocation,
-        }),
-      });
+      const response = await fetch(
+        "https://hungryhutapp-mern-server.onrender.com/api/createuser/createuser",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: credentials.name,
+            email: credentials.email,
+            password: credentials.password,
+            location: credentials.geolocation,
+          }),
+        }
+      );
 
       const json = await response.json();
 

@@ -20,12 +20,20 @@ router.post("/create-checkout-session", async (req, res) => {
   }));
 
   try {
+    // const session = await stripe.checkout.sessions.create({
+    //   payment_method_types: ["card"],
+    //   line_items: lineItems,
+    //   mode: "payment",
+    //   success_url: "http://localhost:3000/success", // Replace with your success URL
+    //   cancel_url: "http://localhost:5000/cancel", // Replace with your cancel URL
+    // });
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: "http://localhost:3000/success", // Replace with your success URL
-      cancel_url: "http://localhost:3000/cancel", // Replace with your cancel URL
+      success_url: "https://hungryhutapp-mern-client.onrender.com/success",
+      cancel_url: "https://hungryhutapp-mern-client.onrender.com/cancel",
     });
 
     res.json({ id: session.id });

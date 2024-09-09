@@ -22,8 +22,6 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/createuser" element={<Signup />} />
             <Route exact path="/myOrder" element={<MyOrder />} />
-            <Route exact path="/getlocation" element={<Signup />} />
-            <Route exact path="/getuser" />
             <Route exact path="/create-checkout-session" element={<Cart />} />
             <Route exact path="/success" element={<Success />} />
             <Route exact path="/cancel" element={<Cancel />} />
