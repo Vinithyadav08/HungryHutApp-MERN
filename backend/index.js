@@ -60,7 +60,7 @@ app.use(cors(corsOptions));
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://hungryhutapp-mern-client.onrender.com"
+    "https://hungryhutapp-mern.onrender.com"
   );
   res.header(
     "Access-Control-Allow-Headers",
