@@ -9,10 +9,7 @@ const stripeRoutes = require("./Routes/stripe");
 mongoDB();
 
 app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://hungryhutapp-mern.onrender.com/"
-  );
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
@@ -21,10 +18,10 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.use("/stripe", stripeRoutes);
-app.use("/", require("./Routes/CreateUser"));
-app.use("/", require("./Routes/DisplayData"));
-app.use("/", require("./Routes/OrderData"));
+app.use("/api/stripe", require("./Routes/stripe"));
+app.use("/api/createuser", require("./Routes/CreateUser"));
+app.use("/api/displaydata", require("./Routes/DisplayData"));
+app.use("/api/orderdata", require("./Routes/OrderData"));
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

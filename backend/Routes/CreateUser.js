@@ -27,12 +27,14 @@ if (userExists) {
  const salt = await bcrypt.genSalt(10);
  let securePass = await bcrypt.hash(req.body.password, salt);
     try {
-      await User.create({
-        name: req.body.name,
-        password: securePass,
-        email: req.body.email,
-        location: req.body.location,
-      }).then(res.json({ success: true }));
+     await User.create({
+       name: req.body.name,
+       password: securePass,
+       email: req.body.email,
+       location: req.body.location,
+     });
+     res.json({ success: true });
+
     } catch (error) {
       console.log(error);
       res.json({ success: false });

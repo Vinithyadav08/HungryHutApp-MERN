@@ -15,28 +15,17 @@ export default function Home() {
   const [search, setSearch] = useState("");
 
   const loadFoodItems = async () => {
-    try {
-      let response = await fetch(
-        "https://hungryhutapp-mern-server.onrender.com/foodData",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      if (!response.ok) {
-        console.error("Failed to fetch data:", response.statusText);
-      } else {
-        response = await response.json();
-        setFoodItems(response[0]);
-        setFoodCat(response[1]);
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+    let response = await fetch("http://localhost:5000/api/displaydata/foodData", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    response = await response.json();
+    // console.log(response[0],response[1 ])
+    setFoodItems(response[0]);
+    setFoodCat(response[1]);
   };
-
 
   useEffect(() => {
     loadFoodItems();

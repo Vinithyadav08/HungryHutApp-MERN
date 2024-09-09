@@ -2,6 +2,8 @@ const express = require("express");
 const Order = require("../models/Orders");
 const router = express.Router();
 const axios = require("axios");
+const authenticateToken = require("../middlewares/authMiddleware");
+
 
 router.post("/orderData", async (req, res) => {
   let data = req.body.order_data;
@@ -76,7 +78,7 @@ router.post("/getlocation", async (req, res) => {
   }
 });
 
-router.post("/getuser", async (req, res) => {
+router.post("/getuser", authenticateToken, async (req, res) => {
   try {
     const userId = req.user.id;
     const user = await User.findById(userId).select("-password");
