@@ -10,23 +10,15 @@ mongoDB();
 
 const cors = require("cors");
 
-const allowedOrigins = [
-  "https://hungryhutapp-mern-client.onrender.com",
-  "http://localhost:3000", // For development purposes
-];
-
+const cors = require("cors");
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true, // Add if you're using cookies/authentication
+    origin: "https://hungryhutapp-mern.onrender.com", // Allow your frontend
   })
 );
+
+
+
 
 
 // app.use((req, res, next) => {
@@ -64,8 +56,8 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
 app.use("/api/stripe", require("./Routes/stripe"));
 app.use("/api/createuser", require("./Routes/CreateUser"));
 app.use("/api/displaydata", require("./Routes/DisplayData"));
