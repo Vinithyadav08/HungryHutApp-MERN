@@ -9,7 +9,7 @@ import Signup from './screens/Signup.js';
 import { CartProvider } from './components/ContextReducer.js';
 import MyOrder from "./screens/MyOrder";
 import Success from './pages/Success.js';
-import Cancel from './pages/Cancel.js';
+import Cancel from './pages/Cancel';
 import Cart from "./screens/Cart.js"
 
 function App() {
