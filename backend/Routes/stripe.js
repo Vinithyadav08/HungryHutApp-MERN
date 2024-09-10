@@ -1,4 +1,5 @@
 const express = require("express");
+import success from "../../src/pages/Success"
 const stripe = require("stripe")(
   "sk_test_51Pom9b2M5DHa1LpZ2oyJbMxK56BS4oQ1VakO9nJll0eEvxWu0ZKfRjJ8GyhbL99h11fcxM9SG9SMnCy7xgBbCioC009H7aDika"
 ); // Replace with your Stripe secret key
@@ -26,7 +27,8 @@ router.post("/create-checkout-session", async (req, res) => {
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: "https://hungryhutapp-mern.onrender.com/success",
+      success_url:
+        "https://hungryhutapp-mern.onrender.com/create-checkout-session/success",
       cancel_url: "https://hungryhutapp-mern.onrender.com/cancel",
     });
 

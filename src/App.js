@@ -23,7 +23,11 @@ function App() {
             <Route exact path="/createuser" element={<Signup />} />
             <Route exact path="/myOrder" element={<MyOrder />} />
             <Route exact path="/create-checkout-session" element={<Cart />} />
-            <Route exact path="/success" element={<Success />} />
+            <Route
+              exact
+              path="/create-checkout-session/success"
+              element={<Success />}
+            />
             <Route exact path="/cancel" element={<Cancel />} />
           </Routes>
         </div>
