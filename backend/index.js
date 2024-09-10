@@ -9,11 +9,30 @@ const stripeRoutes = require("./Routes/stripe");
 // Initialize MongoDB connection
 mongoDB();
 
-const cors = require("cors");
+// const cors = require("cors");
+
+// const allowedOrigins = [
+//   "https://hungryhutapp-mern.onrender.com",
+//   "http://localhost:3000",
+// ];
+
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+//   optionsSuccessStatus: 200,
+// };
+
+// app.use(cors(corsOptions));
+
 
 const allowedOrigins = [
-  "https://hungryhutapp-mern.onrender.com",
-  "http://localhost:3000",
+  "https://hungryhutapp-mern.onrender.com", // Frontend
+  "https://hungryhutapp-mern-server.onrender.com", // Backend
 ];
 
 const corsOptions = {
@@ -31,31 +50,6 @@ app.use(cors(corsOptions));
 
 
 
-
-
-
-
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
-
-
-// app.use((req, res, next) => {
-//   res.setHeader(
-//     "Access-Control-Allow-Origin",
-//     "https://hungryhutapp-mern-client.onrender.com"
-//   );
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
 
 app.use((req, res, next) => {
   res.setHeader(
@@ -75,7 +69,7 @@ app.use(express.static(path.join(__dirname, "build")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
-app.use(express.static(path.join(__dirname, "src")));
+//app.use(express.static(path.join(__dirname, "src")));
 app.use("/api/stripe", require("./Routes/stripe"));
 app.use("/api/createuser", require("./Routes/CreateUser"));
 app.use("/api/displaydata", require("./Routes/DisplayData"));
