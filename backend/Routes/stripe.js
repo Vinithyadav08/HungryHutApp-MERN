@@ -1,5 +1,4 @@
 const express = require("express");
-import success from "../../src/pages/Success"
 const stripe = require("stripe")(
   "sk_test_51Pom9b2M5DHa1LpZ2oyJbMxK56BS4oQ1VakO9nJll0eEvxWu0ZKfRjJ8GyhbL99h11fcxM9SG9SMnCy7xgBbCioC009H7aDika"
 ); // Replace with your Stripe secret key
