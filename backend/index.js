@@ -9,7 +9,7 @@ const stripeRoutes = require("./Routes/stripe");
 // Initialize MongoDB connection
 mongoDB();
 
-// const cors = require("cors");
+const cors = require("cors");
 
 // const allowedOrigins = [
 //   "https://hungryhutapp-mern.onrender.com",
